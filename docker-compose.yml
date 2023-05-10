@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+   backend: 
+    build: .
+    image: server-todoapp:1.0
+    ports: 
+     - 4600:4700
+    environment: 
+        SEQ_DB: postgres
+        SEQ_USER: postgres
+        SEQ_PW: root123
+        PORT: 5200
+        DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - ./src/host:/etc/host
+    command: sh -c 'echo "backend-db-1" >> /etc/hosts && npm start'
+    depends_on:
+      - db
+    
+
+   db:
+     image: postgres
+     ports:
+     - "5200:5432"
+     environment:
+       POSTGRES_USER: postgres
+       POSTGRES_PASSWORD: root1234
+     volumes:
+      - ./src/init.sql:/docker-entrypoint-initdb.d/init.sql
