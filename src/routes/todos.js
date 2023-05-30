@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
             console.log('Ocurrio un Error a obtener los datos')
         }else{
             res.send(result.rows)
+            console.log(result.rows)
             console.log('Se Obtuvieron los datos con exitos')
         }
         
@@ -20,7 +21,8 @@ router.get('/', (req, res) => {
 })  
 
 
-router.post('/', (req, res) => {
+router.post('/Post', (req, res) => {
+    // const sql = `INSERT INTO todosdb(id, completed, todotext) VALUES(${req.body.id}, ${req.body.completed}, ${req.body.todotext})`
      const sql = 'INSERT INTO todosdb(id, completed, todotext) VALUES($1, $2, $3)'
      const data = [req.body.id, req.body.completed, req.body.todotext]
     //  const data = [req.body]
@@ -29,22 +31,23 @@ router.post('/', (req, res) => {
 
             console.log('ah ocurrido un error al insertar el registro en la tabla todosdb')
             console.log(err)
+            res.status(500).send('Error al Insertar registro')
         }else{
-
             console.log('Todo Registrado')
-            console.log(result)
+            res.send('Registro exitoso')
+            // console.log(result)
             // res.send('registrado')
         }
 
     })
     
     // connection.end()
-     console.log(req.body)
+    //  console.log(req.body)
 
 })
 
 
-router.put('/:id', (req, res) => {
+router.put('/Put/:id', (req, res) => {
 
     const sql = "UPDATE todosdb SET completed = $1  WHERE id = $2"
     const { id } = req.params
@@ -55,7 +58,7 @@ router.put('/:id', (req, res) => {
             console.log("Hubo un error con la actulizacion del todo")
             console.log(err)
         }else{
-            console.log('Registro Actulizado con Exitos')
+            res.send('Registro Actulizado con Exitos')
         }
         
     })
@@ -71,7 +74,7 @@ router.delete('/ClearCompleted', (req, res) => {
             console.log("Hubo un error al Eliminar los Registros")
             console.log(err)
         }else{
-           console.log("Registros Eliminados con Exito")
+           res.send("Registros Eliminados con Exito")
          //   console.log(result)
         }
     })
@@ -80,7 +83,7 @@ router.delete('/ClearCompleted', (req, res) => {
 })
 
 
-router.delete('/:id', (req, res) => {
+router.delete('/Delete/:id', (req, res) => {
        const sql = "DELETE FROM todosdb WHERE id = $1"
        const id = req.params.id
 
@@ -89,7 +92,7 @@ router.delete('/:id', (req, res) => {
                console.log("Hubo un error al Eliminar el Registro")
                console.log(err)
            }else{
-              console.log("Registro Eliminado con Exito")
+              res.send("Registro Eliminado con Exito")
             //   console.log(result)
            }
        })

@@ -28,12 +28,12 @@ const {Client, Pool} = require('pg')
 //     }
 // };
 
-const connection = new Pool({
-    connectionString: "postgres://postgres:root1234@backend-db-1:5200/mydb"
-})
 // const connection = new Pool({
-//     connectionString: "postgres://dbuser:root123@db:5300/todoappdb"
+//     connectionString: "postgres://postgres:root1234@backend-db-1:5432/mydb"
 // })
+const connection = new Pool({
+    connectionString: "postgres://postgres:root1234@db:5432/mydb"
+})
 
 
 connection.connect((err, conn) => {

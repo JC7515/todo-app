@@ -13,16 +13,22 @@ app.use(express.urlencoded({
 }))
 
 app.use(express.json({
-    type: "*/*"
+    type: "application/json"
 }))
 
-app.use(cors())
+// const corsOptions = {
+//     origin: '*',
+//     credentials: true,
+//     optionSuccessStatus: 200,
+// }
+
+// app.use(cors())
 
 app.use(router)
 
 // app.set('port', 4500)
 
 
-app.listen( 4700, () => {
-    console.log(`El Servidor esta corriendo por el puerto 4700`)
+app.listen( 4400, () => {
+    console.log(`El Servidor esta corriendo por el puerto 4400`)
 })

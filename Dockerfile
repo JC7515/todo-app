@@ -1,5 +1,5 @@
 #El FROM sirve para indicar la imagen base de nuestro Dockerfile
-FROM node:16-alpine
+FROM node:18-alpine
 
 #El WORKDIR sera el directiorio en donde pondremos todo nuestro proyecto o servidor 
 WORKDIR /app
@@ -40,5 +40,5 @@ COPY . .
 #EL comando CMD nos servira para poder ejecutar comandos dentro del contenedor de docker, y en este caso iniciar nuestro
 #servidor, tenindo que poner dentro de una lista como se ve abajo primero el comando a ejecutar y luego sus parametros.
 
-#CMD echo "172.26.0.2 dbapp" >> /etc/hosts && ["npm", "start"]
+# CMD ["npm", "start"]
 # CMD sh -c 'echo "172.26.0.2 dbapp" >> /etc/hosts && npm start'
