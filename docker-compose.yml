@@ -65,47 +65,47 @@ services:
     depends_on:
       - db
 
-   backend5: 
-    container_name: backend-5
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend5: 
+  #   container_name: backend-5
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
-   backend6: 
-    container_name: backend-6
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend6: 
+  #   container_name: backend-6
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
-   backend7: 
-    container_name: backend-7
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend7: 
+  #   container_name: backend-7
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
-   backend8: 
-    container_name: backend-8
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend8: 
+  #   container_name: backend-8
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
-   backend9: 
-    container_name: backend-9
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend9: 
+  #   container_name: backend-9
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
-   backend10: 
-    container_name: backend-10
-    image: server-todoapp:1.0
-    command: 'npm start'
-    depends_on:
-      - db
+  #  backend10: 
+  #   container_name: backend-10
+  #   image: server-todoapp:1.0
+  #   command: 'npm start'
+  #   depends_on:
+  #     - db
 
 
    db:
@@ -135,10 +135,10 @@ services:
       - backend2
       - backend3
       - backend4
-      - backend5
-      - backend6
-      - backend7
-      - backend8
-      - backend9
-      - backend10
+      # - backend5
+      # - backend6
+      # - backend7
+      # - backend8
+      # - backend9
+      # - backend10
 
